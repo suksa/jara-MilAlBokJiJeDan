@@ -1,0 +1,88 @@
+@import "./reset.scss";
+@import "../font/noto.scss";
+
+@mixin heading($supColor:#067c5a,$color:#000,$barColor:#7ebba9){
+	sup{
+		display: block;
+		letter-spacing: 0;
+		font-size: 0.933rem;
+		margin: 0 0 0.667rem;
+		color:$supColor;
+	}
+	h3{
+		font-size: 2.133rem;
+		line-height: 3rem;
+		color:$color;
+		&:after{
+			content: '';
+			display: block;
+			margin: 1.667rem auto;
+			width: 110px;
+			height: 4px;
+			background:$barColor;
+		}
+	}
+}
+
+html {
+	font-family: 'NotoKr',sans-serif;
+	font-size: 15px;
+	letter-spacing: -0.095em;
+	user-select: none;
+}
+.top-logo {
+	position: absolute;
+	top:57px;
+	&.left {
+		left: 65px;
+	}
+	&.right {
+		right:65px;
+	}
+}
+#visual {
+	height: 960px;
+	background: #fef7f1 url(../img/visual.jpg) no-repeat center;
+	text-align: center;
+	.visual-video {
+		position: relative;
+		top:365px;
+		width: 650px;
+		height: 370px;
+		border: 5px solid #00b652;
+	}
+}
+.row-1 {
+	background: url(../img/bg-green.jpg);
+	padding: 8rem 0;
+	.content {
+		@include heading(
+			$supColor:#fff,
+			$color:#fff,
+			$barColor:rgba(255,255,255,.3)
+		);
+		padding: 3rem;
+		max-width: 1040px;
+		margin: 0 auto;
+		border: 2px solid #fff;
+		color: #fff;
+		text-align: center;
+		ul{
+			display: inline-block;
+			text-align: left;
+			li{
+				font-size: 1.333rem;
+				line-height: 3rem;
+			}
+		}
+	}
+}
+.row-2 {
+	background: #f8f7f2;
+	padding: 8rem 0;
+	text-align: center;
+	@include heading;
+	.head-under-text {
+		
+	}
+}
