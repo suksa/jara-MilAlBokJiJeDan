@@ -1,3 +1,4 @@
+@charset 'utf-8';
 @import "./reset.scss";
 @import "../font/noto.scss";
 
@@ -48,10 +49,6 @@ html {
 	user-select: none;
 	@media screen and (max-width:$break-small){
 		font-size: 13px;
-		br {
-			display: inline;
-    	content: ' ';
-		}
 	}
 }
 h3,h4,p,li {
@@ -91,6 +88,18 @@ h3,h4,p,li {
 	line-height: 2rem;
 	strong{
 		font-weight: 500;
+	}
+}
+.break-point {
+	display: block;
+	content: ' ';
+	&:after {
+		content: ' ';
+	}
+}
+@media screen and (max-width:$break-small){
+	.break-point {
+		display: inline;
 	}
 }
 #visual {
@@ -235,9 +244,6 @@ h3,h4,p,li {
 				p {
 					line-height: 1.3em;
 				}
-				br {
-					display: block;
-				}
 			}
 		}
 		@media screen and (min-width:571px) and (max-width:$break-small){
@@ -266,6 +272,7 @@ h3,h4,p,li {
 	@include articleBasic(
 		#fff
 	);
+	position: relative;
 	text-align: center;
 	@include heading;
 	sup {margin: 0 0 2.667rem}
@@ -323,7 +330,7 @@ h3,h4,p,li {
 		strong {
 			font-weight: 500;
 		}
-		a {
+		.gift {
 			display: flex;
 			align-items: center;
 			justify-content: center;
@@ -334,6 +341,12 @@ h3,h4,p,li {
 			font-size: 1.733rem;
 			color: #fff;
 		}
+		.parent_gift {
+			@include responsiveImg;
+			position: absolute;
+			right: 65px;
+			bottom: 60px;
+		}
 	}
 	@media screen and (max-width:1024px){
 		ul{
@@ -341,9 +354,22 @@ h3,h4,p,li {
 				width: 255px;
 				height: 255px;
 				margin: 0 -8px;
-				br {
-					display: block;
-				}
+			}
+		}
+		.support{
+			.parent_gift {
+				bottom: 30px;
+				right: 3%;
+			}
+		}
+	}
+	@media screen and (max-width:830px){
+		.support{
+			.parent_gift {
+				position: static;
+				display: inline-block;
+				margin: 30px 0 0;
+				width: 120px;
 			}
 		}
 	}
@@ -359,25 +385,28 @@ h3,h4,p,li {
 	}
 	@media screen and (max-width:620px){
 		ul{
-			flex-direction: column;
 			align-items: center;
-			margin: 4.333em 0;
+			margin: 2em 0;
+			flex-wrap: wrap;
 			li{
-				width: 290px;
-				height: 290px;
-				font-size: inherit;
-				&+li {margin: 20px 0 0}
+				width: 150px;
+				height: 150px;
+				font-size: 10px;
+				margin: 5px;
 				@for $i from 1 through 3 {
 					&:nth-child(#{$i}){
 						background: url('../img/circle-2.png') center no-repeat;
 						background-size: cover;
 					}
 				}
+				h4{
+					margin: 0 0 0.6em;
+				}
 			}
 		}
 		.support {
 			font-size: 1.5rem;
-			a {
+			.gift {
 				width: 100%
 			}
 		}
