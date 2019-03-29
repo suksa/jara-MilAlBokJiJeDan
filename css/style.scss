@@ -81,6 +81,12 @@ h3,h4,p,li {
 		&.right {
 			width: 20%;
 		}
+		&.concept-2 {
+			width: 25%
+		}
+		&.concept-3 {
+			width: 12%
+		}
 	}
 }
 .head-under-text {
@@ -143,6 +149,11 @@ h3,h4,p,li {
 			top: 21%;
 			left: 5%;
 			width: 90%;
+		}
+		h1.vis-txt-2{
+			top: 19%;
+			left: 15%;
+			width: 70%;
 		}
 		.visual-video {
 			position: absolute;
@@ -410,6 +421,190 @@ h3,h4,p,li {
 				width: 100%
 			}
 		}
+	}
+	&.mobile {
+		.support {
+			.gift {
+				flex-direction: column;
+				padding: 1rem 0;
+				margin:0 auto 2.333rem;
+				width: 435px;
+				height: auto;
+				font-size:1.733rem;
+				b{
+					font-size: 2.267rem;
+				}
+			}
+			.txt-1 {
+				margin: 1.333rem;
+				font-size:1.2rem;
+				line-height: 1.6rem;
+				color:#017f5b;
+			}
+			.txt-2 {
+				font-size:1.2rem;
+				line-height: 1.6rem;
+				color:#000;
+			}
+		}
+		@media screen and (max-width:$break-small){
+			.support {
+				.gift{
+					width: 100%;
+				}
+			}
+		}
+		@media screen and (max-width:420px){
+			.support {
+				.gift{
+					font-size:1.4rem;
+					b{
+						font-size: 2rem;
+					}
+				}
+			}
+		}
+	}
+}
+.row-4 {
+	@include articleBasic(
+		#f8f7f2
+	);
+	text-align: center;
+	h3{
+		margin: 0 0 1.533rem;
+		font-size: 2rem;
+		line-height: 2.5rem;
+	}
+	.head-under-text {
+		margin: 0 0 4rem;
+	}
+	.step_group{
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .arr {
+      $width-height:20px;
+      $height-right:4px;
+      position: absolute;
+      top: 41px;
+      right: -2px;
+      width: $width-height;
+      height: $width-height;
+      transform: rotate(45deg);
+      &:before,
+      &:after {
+        content:'';
+        position: absolute;
+        width:$width-height;
+        height: $height-right;
+        background:#01b552;
+      }
+      &:before {
+        top:0;
+        left: 0;
+      }
+      &:after {
+        top: 0;
+        right: $height-right;
+        transform-origin: top right;
+        transform: rotate(-90deg)
+      }
+    }
+		.step{
+      position: relative;
+      margin: 0 1.5px;
+      &:before {
+        content: '';
+        display: inline-block;
+        margin: 0 0 1.2rem;
+        width: 107px;
+        height: 104px;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      @for $i from 1 through 5 {
+        &:nth-child(#{$i}):before{
+          background-image: url('../img/step-#{$i}.png')
+        }
+      }
+			.num {
+				font-size: 1.033rem;
+        font-weight: 500;
+        &:after {
+          content: '';
+          display: block;
+          margin: 0.6rem 0 1.133rem;
+          width: 182px;
+          height: 5px;
+          background: #0db551;
+        }
+			}
+			.txt{
+				font-size: 1.467rem;
+			}
+    }
+    @media screen and (min-width:$break-small) and (max-width:1024px){
+      width: 610px;
+      .step{
+        margin-bottom: 35px;
+        &:nth-child(3){
+          .arr {
+            display: none;
+          }
+        }
+      }
+    }
+    @media screen and (max-width:$break-small){
+      display: flex;
+      .arr{
+        $width-height:10px;
+        $height-right:2px;
+        width: $width-height;
+        height: $width-height;
+        &:before,
+        &:after {
+          width:$width-height;
+          height: $height-right;
+        }
+        &:after {
+          right: $height-right;
+        }
+      }
+      .step{
+        flex:1;
+        &:before {
+          width: 100%;
+          height: 52px;
+          background-size: contain;
+        }
+        .num {
+          &:after {
+            width: 15px;
+            height:2px;
+            margin: 0.7rem auto;
+          }
+        }
+      }
+    }
+    @media screen and (max-width:550px){
+      max-width: 320px;
+      display: inline-flex;
+      flex-wrap: wrap;
+      .step{
+        flex: 0 0 100px;
+        margin-bottom: 35px;
+        &:nth-child(3){
+          .arr {
+            display: none;
+          }
+        }
+        &:nth-child(4),
+        &:nth-child(5){
+          margin-bottom: 0;
+        }
+      }
+    }
 	}
 }
 footer {
