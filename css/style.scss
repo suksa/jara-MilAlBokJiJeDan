@@ -607,6 +607,22 @@ h3,h4,p,li {
     }
 	}
 }
+.row-5 {
+	padding: 1rem;
+	background: #e2f0d9;
+	text-align: center;
+	p {
+		margin: 0.5rem 0 0;
+		font-size: 1.1rem;
+		color:#444
+	}
+	@media screen and (max-width:$break-small){
+		h4 img {
+			width: 116px;
+			height: 23.5px;
+		}
+	}
+}
 footer {
 	background: #363837;
 	padding: 2.467em;
